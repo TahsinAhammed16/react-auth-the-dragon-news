@@ -1,11 +1,29 @@
-
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const LeftSide = () => {
-    return (
-        <div>
-            leftSide             
-        </div>
-    );
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("categories.json")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
+
+  return (
+    <div className="p-4 space-y-3 mb-6">
+      <h2 className="text-3xl">All Categories</h2>
+      {categories.map((category) => (
+        <Link
+          className="block ml-4 text-xl font-semibold"
+          key={category.id}
+          to={`/category/${category.id}`}
+        >
+          {category.name}
+        </Link>
+      ))}
+    </div>
+  );
 };
 
 export default LeftSide;

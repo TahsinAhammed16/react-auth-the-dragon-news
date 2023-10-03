@@ -1,7 +1,7 @@
 import Header from "../shared/header/Header";
 import Navbar from "../shared/navbar/navbar";
 import LeftSide from "../shared/leftSide/LeftSide";
-import RightSide from "../shared/leftSide/LeftSide";
+import RightSide from "../shared/rightSide/RightSide";
 import BreakingNews from "./BreakingNews";
 
 const Home = () => {
