@@ -12,8 +12,8 @@ import qZone3 from "../../../assets/qZone3.png";
 const RightSide = () => {
   return (
     <div>
-      <div className="p-4 space-y-3 mb-6">
-        <h2 className="text-3xl">Login With</h2>
+      <div className="space-y-3 mb-6">
+        <h2 className="text-xl">Login With</h2>
         <button className="btn btn-outline w-full normal-case">
           <FaGoogle className="text-xl"></FaGoogle>
           <span>Login With Google</span>
@@ -23,8 +23,8 @@ const RightSide = () => {
           <span>Login With Github</span>
         </button>
       </div>
-      <div className="p-4 mb-6">
-        <h2 className="text-3xl mb-4">Find Us on</h2>
+      <div className="mb-6">
+        <h2 className="text-xl mb-4">Find Us on</h2>
         <a
           className="p-4 flex text-lg items-center border rounded-t-lg"
           href=""
@@ -47,7 +47,7 @@ const RightSide = () => {
 
       {/* q zone */}
       <div className="p-4 space-y-3 mb-6 bg-[#F3F3F3]">
-        <h2 className="text-3xl">Q Zone</h2>
+        <h2 className="text-xl">Q Zone</h2>
         <div className="flex flex-col items-center">
           <img src={qZone1} alt="" />
           <img src={qZone2} alt="" />

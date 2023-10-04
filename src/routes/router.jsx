@@ -4,6 +4,7 @@ import Root from "../layouts/Root";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/register";
+import NewsDesc from "../pages/newsDesc/NewsDesc";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("news.json"),
+      },
+      {
+        path: "/eachNews/:id",
+        element: <NewsDesc></NewsDesc>,
       },
       {
         path: "/login",

@@ -11,7 +11,7 @@ const LeftSide = () => {
   }, []);
 
   return (
-    <div className="p-4 space-y-3 mb-6">
+    <div className="space-y-3 mb-6">
       <h2 className="text-3xl">All Categories</h2>
       {categories.map((category) => (
         <Link
