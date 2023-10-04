@@ -1,24 +1,37 @@
+import { useContext } from "react";
 import Navbar from "../shared/navbar/navbar";
 import { Link } from "react-router-dom";
-
-const handleRegister = (e) => {
-  e.preventDefault();
-  console.log(e.currentTarget);
-  const form = new FormData(e.currentTarget);
-
-  const name = form.get("name");
-  const photo = form.get("photo");
-  const email = form.get("email");
-  const password = form.get("password");
-  console.log(name, photo, email, password);
-};
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log(e.currentTarget);
+    const form = new FormData(e.currentTarget);
+
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const email = form.get("email");
+    const password = form.get("password");
+    console.log(name, photo, email, password);
+
+    // create user
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="">
       <Navbar></Navbar>
       <div className="bg">
-        <h2 className="text-3xl my-10 text-center">Login your account</h2>
+        <h2 className="text-3xl my-10 text-center">Register your account</h2>
         <form onSubmit={handleRegister} className="md:w-3/4 lg:w-1/2 mx-auto">
           <div className="form-control">
             <label className="label">
@@ -26,7 +39,7 @@ const Register = () => {
             </label>
             <input
               type="text"
-              name="text"
+              name="name"
               placeholder="Enter your name"
               className="input input-bordered"
               required
@@ -38,7 +51,7 @@ const Register = () => {
             </label>
             <input
               type="url"
-              name="url"
+              name="photo"
               placeholder="Enter your password"
               className="input input-bordered"
               required
